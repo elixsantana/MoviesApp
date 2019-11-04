@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">AppMovies</string>
+    <!--    <string name="nav_header_subtitle">android.studio@android.com</string>-->
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_estrenos">Estrenos</string>
+    <string name="menu_proximamente">Proximamente</string>
+    <string name="menu_new_estrenos">Nuevos Estrenos</string>
+    <string name="edit_busqueda">Busqueda</string>
+    <string name="txt_filtro">Filtrar por Productores:</string>
+    <!--    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>-->
+</resources>

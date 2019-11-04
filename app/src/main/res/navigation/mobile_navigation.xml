@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_estrenos">
+
+    <fragment
+        android:id="@+id/nav_estrenos"
+        android:name="com.example.movies.ui.estrenos.EstrenosFragment"
+        android:label="@string/menu_estrenos"
+        tools:layout="@layout/fragment_estrenos" />
+
+    <fragment
+        android:id="@+id/nav_proximamente"
+        android:name="com.example.movies.ui.proximamente.ProximamenteFragment"
+        android:label="@string/menu_proximamente"
+        tools:layout="@layout/fragment_proximamente" />
+
+    <fragment
+        android:id="@+id/nav_new_estrenos"
+        android:name="com.example.movies.ui.nuevosestrenos.NuevosEstrenosFragment"
+        android:label="@string/menu_new_estrenos"
+        tools:layout="@layout/fragment_new_estrenos" />
+
+
+</navigation>
