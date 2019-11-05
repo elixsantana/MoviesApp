@@ -27,8 +27,9 @@
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:srcCompat="@drawable/hustlers"
         />
-<!--    app:srcCompat="@drawable/hustlers"-->
+<!--    -->
 
     <TextView
         android:id="@+id/tit_newestrenos"

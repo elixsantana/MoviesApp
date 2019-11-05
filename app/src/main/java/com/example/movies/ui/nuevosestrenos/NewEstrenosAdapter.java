@@ -11,20 +11,28 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.movies.DownloadPoster;
+import com.example.movies.NuevosEstrenosApi.NewMovies;
+import com.example.movies.ProximamenteApiCall.ProxMovie;
 import com.example.movies.R;
+
+import java.util.List;
 
 public class NewEstrenosAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
     Context contextonew;
-    String[][] datosnew;
-    int [] datosImgnew;
+    List<NewMovies> data;
 
-    public NewEstrenosAdapter (Context contextonew, String [][] datosnew, int [] imagenesnew)
+    String [][] listanestrenos;
+    int[] imgNew;
+
+    public NewEstrenosAdapter (Context contextonew, String [][] listanestrenos, int[] img) //List<NewMovies> data
     {
+        this.listanestrenos = listanestrenos;
+        this.imgNew = img;
         this.contextonew = contextonew;
-        this.datosnew = datosnew;
-        this.datosImgnew = imagenesnew;
+        this.data = data;
         inflater = (LayoutInflater)contextonew.getSystemService(contextonew.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -36,17 +44,17 @@ public class NewEstrenosAdapter extends BaseAdapter {
         TextView titulo_new = (TextView)vista.findViewById(R.id.tit_newestrenos);
         ImageView poster_new = (ImageView) vista.findViewById(R.id.imgnewestrenos);
 
-        titulo_new.setText(datosnew[i][0]);
-        poster_new.setImageResource(datosImgnew[i]);
+        titulo_new.setText(data.get(i).getName());
+       poster_new.setImageResource(imgNew[i]);
 
-
+     //   new DownloadPoster(poster_new).execute(data.get(i).getPoster());
 
         return vista;
     }
 
     @Override
     public int getCount() {
-        return datosImgnew.length;
+        return data.size();
     }
 
     @Override
