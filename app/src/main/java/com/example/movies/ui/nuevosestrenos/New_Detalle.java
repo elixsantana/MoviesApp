@@ -11,11 +11,12 @@ import android.widget.TextView;
 
 import com.example.movies.R;
 import com.example.movies.YoutubeConfig;
+import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
-public class New_Detalle extends AppCompatActivity {
+public class New_Detalle extends YouTubeBaseActivity {
 
     String trailer;
     Button btn3;
@@ -32,7 +33,7 @@ public class New_Detalle extends AppCompatActivity {
 
         Intent pasa = getIntent();
         Bundle pasado = pasa.getExtras();
-        trailer = pasado.getString("TRAILER3");
+        trailer = pasado.getString("TRAILER_NEW");
 
         if(pasado != null){
             det_new_tit.setText(pasado.getString("NTT"));

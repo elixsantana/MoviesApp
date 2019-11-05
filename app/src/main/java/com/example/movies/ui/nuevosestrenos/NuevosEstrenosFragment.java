@@ -93,7 +93,7 @@ public class NuevosEstrenosFragment extends Fragment {
                         Intent newdetalle = new Intent(view.getContext(),New_Detalle.class);
                         newdetalle.putExtra("NTT",newMovies.get(i).getName());
                         newdetalle.putExtra("NRT", newMovies.get(i).getSynopsis());
-                        newdetalle.putExtra("TRAILER3", newMovies.get(i).getTrailer());
+                        newdetalle.putExtra("TRAILER_NEW", newMovies.get(i).getTrailer());
                         startActivity(newdetalle);
                     }
                 });
