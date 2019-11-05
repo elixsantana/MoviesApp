@@ -5,8 +5,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface MoviesApi {
+public interface ProxMovieEndpoint {
 
-    @GET("/v2/5dc04c9a310000d1d3be402b") // endpoint
-    Call<List<Movie>> getPosts();
+    @GET("/v2/5dc08e44310000810bbe41b3") // endpoint
+    Call<List<ProxMovie>> getPosts();
 }

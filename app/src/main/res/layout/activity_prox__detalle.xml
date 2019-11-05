@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resproxdetalle" />
 
-    <VideoView
+    <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/videoProxdetalle"
         android:layout_width="370dp"
         android:layout_height="250dp"
@@ -73,4 +73,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trailerproxdetalle" />
+
+    <Button
+        android:id="@+id/btnProx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videoProxdetalle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

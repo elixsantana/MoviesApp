@@ -24,7 +24,7 @@ public class EstrenosAdapter extends BaseAdapter {
     List<Movie> data;
     int [] datosImg;
 
-    public EstrenosAdapter (Context contexto, List<Movie> data, int [] imagenes)
+    public EstrenosAdapter (Context contexto, List<Movie> data, int[] imagenes)
     {
         this.contexto = contexto;
         this.data = data;

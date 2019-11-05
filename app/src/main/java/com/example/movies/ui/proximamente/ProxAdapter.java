@@ -11,20 +11,27 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.movies.DownloadPoster;
+import com.example.movies.ProximamenteApiCall.ProxMovie;
 import com.example.movies.R;
+
+import java.util.List;
 
 public class ProxAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
     Context contextoprox;
-    String[][] datosprox;
-    int [] datosImgprox;
+//    String[][] datosprox;
+//    int [] datosImgprox;
 
-    public ProxAdapter (Context contextoprox, String [][] datosprox, int [] imagenesprox)
+    List<ProxMovie> data;
+
+    public ProxAdapter (Context contextoprox, List<ProxMovie> data) //String[][] datosprox, int[] datosImgprox
     {
         this.contextoprox = contextoprox;
-        this.datosprox = datosprox;
-        this.datosImgprox = imagenesprox;
+        this.data = data;
+//        this.datosprox = datosprox;
+//        this.datosImgprox = datosImgprox;
         inflater = (LayoutInflater)contextoprox.getSystemService(contextoprox.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -37,10 +44,15 @@ public class ProxAdapter extends BaseAdapter {
         TextView fecha_prox = (TextView)vista.findViewById(R.id.fechaProx);
         ImageView poster_prox = (ImageView) vista.findViewById(R.id.imgProx);
 
-        titulo_prox.setText(datosprox[i][0]);
-        fecha_prox.setText(datosprox[i][3]);
-        poster_prox.setImageResource(datosImgprox[i]);
+//        titulo_prox.setText(datosprox[i][0] );
+//        fecha_prox.setText(datosprox[i][4]);
 
+        titulo_prox.setText(data.get(i).getName());
+        fecha_prox.setText(data.get(i).getDate());
+
+//        poster_prox.setImageResource(data.get(i).ge);
+
+        new DownloadPoster(poster_prox).execute(data.get(i).getPoster());
 
 
         return vista;
@@ -48,7 +60,7 @@ public class ProxAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return datosImgprox.length;
+        return data.size();  // datosImgprox.length
     }
 
     @Override

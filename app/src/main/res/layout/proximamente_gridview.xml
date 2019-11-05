@@ -28,7 +28,8 @@
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hustlers" />
+         />
+<!--    app:srcCompat="@drawable/hustlers"-->
 
     <TextView
         android:id="@+id/titulo_prox"
@@ -36,7 +37,7 @@
         android:layout_height="19dp"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,13 +45,13 @@
 
     <TextView
         android:id="@+id/fechaProx"
-        android:layout_width="76dp"
+        android:layout_width="120dp"
         android:layout_height="18dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
-        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.461"

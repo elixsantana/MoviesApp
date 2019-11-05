@@ -37,7 +37,7 @@ public class DetallesEstrenos extends YouTubeBaseActivity {
 
         Intent intent = getIntent();
         Bundle pasar = intent.getExtras();
-        trailer = pasar.getString("TRAILER)");
+        trailer = pasar.getString("TRAILER");
 
         if (pasar != null) {
             det_titulo.setText(pasar.getString("TIT"));
@@ -55,6 +55,7 @@ public class DetallesEstrenos extends YouTubeBaseActivity {
             mOnInitializedListerner = new YouTubePlayer.OnInitializedListener() {
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                 //   String newTrailer = new String (trailer);
                     youTubePlayer.loadVideo(trailer);
                 }
 

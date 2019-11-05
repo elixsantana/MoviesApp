@@ -46,7 +46,7 @@ public class Search extends AppCompatActivity {
         });
     }
 
-//    public List<Movie> searchMovie (List<Movie> moviesFragment){
+//    public List<ProxMovie> searchMovie (List<ProxMovie> moviesFragment){
 //
 //
 //

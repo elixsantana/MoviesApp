@@ -74,7 +74,7 @@ public class EstrenosFragment extends Fragment {
                 movies = response.body();
 
                 ListView listaestrenos = view.findViewById(R.id.estrenoslista);
-                listaestrenos.setAdapter(new EstrenosAdapter(getActivity(),movies,Imgestrenos));
+                listaestrenos.setAdapter(new EstrenosAdapter(getActivity(),movies, Imgestrenos));
 
 
                 listaestrenos.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 
 public interface MoviesApi {
 
-    @GET("/v2/5dc04c9a310000d1d3be402b") // endpoint
+    @GET("v2/5dc04c9a310000d1d3be402b") // endpoint
     Call<List<Movie>> getPosts();
 }
