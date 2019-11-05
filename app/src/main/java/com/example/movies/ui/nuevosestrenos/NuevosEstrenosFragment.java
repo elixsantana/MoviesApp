@@ -18,10 +18,9 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.movies.NuevosEstrenosApi.NewMovies;
-import com.example.movies.NuevosEstrenosApi.NewMoviesEndpoint;
-import com.example.movies.ProximamenteApiCall.ProxMovie;
-import com.example.movies.ProximamenteApiCall.ProxMovieEndpoint;
+import com.example.movies.NewMovies.NewMovies;
+import com.example.movies.NewMovies.NewMoviesInt;
+
 import com.example.movies.R;
 import com.example.movies.ui.proximamente.ProxAdapter;
 import com.example.movies.ui.proximamente.Prox_Detalle;
@@ -58,12 +57,8 @@ public class NuevosEstrenosFragment extends Fragment {
         ArrayAdapter<String> adaptorcine = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, cines);
         dropdowncines.setAdapter(adaptorcine);
 
-       final String [][] listanestrenos = {
-                {"La Familia Adams", "An animated version of Charles Addams' series of cartoons about a peculiar, ghoulish family."},
-                {"Rambo","Rambo must confront his past and unearth his ruthless combat skills to exact revenge in a final mission."}
-        };
 
-        final int [] Imgnewestrenos = {R.drawable.addams, R.drawable.rambo};
+//        final int [] Imgnewestrenos = {R.drawable.addams, R.drawable.rambo};
 
 
         final Retrofit retrofit3 = new Retrofit.Builder()
@@ -71,16 +66,16 @@ public class NuevosEstrenosFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        NewMoviesEndpoint moviesApi = retrofit3.create(NewMoviesEndpoint.class);
+        NewMoviesInt moviesApi3 = retrofit3.create(NewMoviesInt.class);
 
-        Call<List<NewMovies>> call3  = moviesApi.getPosts();
+        Call<List<NewMovies>> call3  = moviesApi3.getEstrenos();
 
         call3.enqueue(new Callback<List<NewMovies>>() {
             @Override
             public void onResponse(Call<List<NewMovies>> call, Response<List<NewMovies>> response) {
 
                 if (!response.isSuccessful()){
-//                    textViewResult.setText("Code: " + response.code());
+//                    Log.d("API" , String.valueOf(response.code()) );
                     Log.i("API_MESSAGE\"", "Fallo");
 
                     return;
@@ -88,29 +83,33 @@ public class NuevosEstrenosFragment extends Fragment {
 
                 newMovies = response.body();
 
-//
+
                 GridView gridnewpelis = view.findViewById(R.id.gridnewestrenos);
-                gridnewpelis.setAdapter(new NewEstrenosAdapter(getActivity(),listanestrenos, Imgnewestrenos));
+                gridnewpelis.setAdapter(new NewEstrenosAdapter(getActivity(), newMovies));
 
                 gridnewpelis.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent newdetalle = new Intent(view.getContext(),New_Detalle.class);
-                        newdetalle.putExtra("NTT", newMovies.get(i).getName());
+                        newdetalle.putExtra("NTT",newMovies.get(i).getName());
                         newdetalle.putExtra("NRT", newMovies.get(i).getSynopsis());
                         newdetalle.putExtra("TRAILER3", newMovies.get(i).getTrailer());
                         startActivity(newdetalle);
                     }
                 });
-//
+
+
             }
-            //
+
             @Override
             public void onFailure(Call<List<NewMovies>> call, Throwable t) {
 
                 Log.i("API_MESSAGE", "on Failure");
+
+
             }
         });
+
 
 
 

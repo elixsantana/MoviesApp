@@ -2,18 +2,18 @@
 package com.example.movies.ui.nuevosestrenos;
 
 import android.content.Context;
-import android.content.Intent;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RatingBar;
+
 import android.widget.TextView;
 
 import com.example.movies.DownloadPoster;
-import com.example.movies.NuevosEstrenosApi.NewMovies;
-import com.example.movies.ProximamenteApiCall.ProxMovie;
+
+import com.example.movies.NewMovies.NewMovies;
 import com.example.movies.R;
 
 import java.util.List;
@@ -24,13 +24,9 @@ public class NewEstrenosAdapter extends BaseAdapter {
     Context contextonew;
     List<NewMovies> data;
 
-    String [][] listanestrenos;
-    int[] imgNew;
 
-    public NewEstrenosAdapter (Context contextonew, String [][] listanestrenos, int[] img) //List<NewMovies> data
+    public NewEstrenosAdapter (Context contextonew, List<NewMovies> data) //String [][] listanestrenos, int[] img
     {
-        this.listanestrenos = listanestrenos;
-        this.imgNew = img;
         this.contextonew = contextonew;
         this.data = data;
         inflater = (LayoutInflater)contextonew.getSystemService(contextonew.LAYOUT_INFLATER_SERVICE);
@@ -45,9 +41,10 @@ public class NewEstrenosAdapter extends BaseAdapter {
         ImageView poster_new = (ImageView) vista.findViewById(R.id.imgnewestrenos);
 
         titulo_new.setText(data.get(i).getName());
-       poster_new.setImageResource(imgNew[i]);
+//       poster_new.setImageResource(imgNew[i]);
 
-     //   new DownloadPoster(poster_new).execute(data.get(i).getPoster());
+
+        new DownloadPoster(poster_new).execute(data.get(i).getPoster());
 
         return vista;
     }
