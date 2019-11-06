@@ -62,7 +62,7 @@ public class New_Detalle extends YouTubeBaseActivity {
             @SuppressLint("WrongViewCast")
             @Override
             public void onClick(View v) {
-                mYoutubePlayerView =  (YouTubePlayerView) findViewById(R.id.videoProxdetalle);
+                mYoutubePlayerView =  (YouTubePlayerView) findViewById(R.id.vidnewdet);
 
                 mYoutubePlayerView.initialize(YoutubeConfig.getApiKey(), mOnInitializedListerner);
             }
