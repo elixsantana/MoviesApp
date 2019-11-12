@@ -2,6 +2,8 @@ package com.example.movies.ui.estrenos;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,10 +31,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class EstrenosFragment extends Fragment {
+public class EstrenosFragment extends Fragment implements TextWatcher {
 
     private EstrenosModel estrenosModel;
     public List<Movie> movies;
+    EstrenosAdapter filtrarEstrenos = new EstrenosAdapter();
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,6 +51,7 @@ public class EstrenosFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
 
         final int[] Imgestrenos = {R.drawable.liga, R.drawable.logan};
@@ -72,9 +77,11 @@ public class EstrenosFragment extends Fragment {
                 }
 
                 movies = response.body();
+                final EstrenosAdapter myAdapter = new EstrenosAdapter(getActivity(),movies,Imgestrenos);
+                filtrarEstrenos = myAdapter;
 
                 ListView listaestrenos = view.findViewById(R.id.estrenoslista);
-                listaestrenos.setAdapter(new EstrenosAdapter(getActivity(),movies, Imgestrenos));
+                listaestrenos.setAdapter(myAdapter);
 
 
                 listaestrenos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,6 +99,7 @@ public class EstrenosFragment extends Fragment {
 
             }
 
+
             @Override
             public void onFailure(Call<List<Movie>> call, Throwable t) {
 
@@ -101,6 +109,25 @@ public class EstrenosFragment extends Fragment {
 
 
         /**** END OF REST API CALL ****/
+
+        EditText buscar = (EditText)view.findViewById(R.id.search);
+        buscar.addTextChangedListener(this);
     }
 
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        this.filtrarEstrenos.getFilter().filter(charSequence);
+
+
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable editable) {
+
+    }
 }
